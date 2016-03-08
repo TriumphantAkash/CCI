@@ -10,11 +10,11 @@ public class MainClass {
 		HashMap ht = new HashMap();
 		System.out.println("hash value of string Akash is: "+ht.hash("Akash"));
 		
-		ht.insertNode("Akash", "CHaturvedi");
+		ht.insert("Akash", "CHaturvedi");
 		
-		ht.insertNode("Mayank", "Agrawal");
-		ht.insertNode("Apurva", "Imaandar");
-		ht.insertNode("Saankya", "Ramdas");
+		ht.insert("Mayank", "Agrawal");
+		ht.insert("Apurva", "Imaandar");
+		ht.insert("Saankya", "Ramdas");
 		
 		
 //		for(ArrayList<Node> list: ht.getHashTab()){
@@ -24,22 +24,7 @@ public class MainClass {
 //			System.out.print("\n");
 //		}
 		
-		ArrayList<Node>[] thisHashTab = new ArrayList[10];
-		thisHashTab = ht.getHashTab();
-		
-		ArrayList<Node> temp = new ArrayList();
-		for(int i=0; i<thisHashTab.length;i++){
-			temp=thisHashTab[i];
-			if(temp != null){
-				System.out.println("list at index "+i+ " is");
-				for(Node node: temp){
-					System.out.print(node.getKey()+", "+node.getValue()+"  ");
-				}
-				System.out.print("\n");
-			}else {
-				System.out.println("list at index "+i+ " is null");
-			}
-		}
+		ht.display();
 		
 	}
 }

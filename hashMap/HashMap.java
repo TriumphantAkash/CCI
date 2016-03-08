@@ -9,8 +9,19 @@ public class HashMap {
 
 	ArrayList<Node>[] hashTab = new ArrayList[10];
 	
+	//return null if no such key value pair is found
+	//else return the corresponding Value for the key
 	
-	public void insertNode(String key, String value){
+	public ArrayList<Node>[] getHashTab() {
+		return hashTab;
+	}
+
+	public void setHashTab(ArrayList<Node>[] hashTab) {
+		this.hashTab = hashTab;
+	}
+
+	
+	public void insert(String key, String value){
 		int index = 0;
 	
 		Node node = new Node();
@@ -31,18 +42,8 @@ public class HashMap {
 		
 	}
 	
-	//return null if no such key value pair is found
-	//else return the corresponding Value for the key
 	
-	public ArrayList<Node>[] getHashTab() {
-		return hashTab;
-	}
-
-	public void setHashTab(ArrayList<Node>[] hashTab) {
-		this.hashTab = hashTab;
-	}
-
-	public String getNode(String key){
+	public String get(String key){
 		int index = (int)hash(key)%10;
 		ArrayList<Node> tempList= hashTab[index];
 		
@@ -52,6 +53,22 @@ public class HashMap {
 			}
 		}
 		return null;
+	}
+	
+	public void display(){
+		ArrayList<Node> temp = new ArrayList();
+		for(int i=0; i<hashTab.length;i++){
+			temp=hashTab[i];
+			if(temp != null){
+				System.out.println("list at index "+i+ " is");
+				for(Node node: temp){
+					System.out.print(node.getKey()+", "+node.getValue()+"  ");
+				}
+				System.out.print("\n");
+			}else {
+				System.out.println("list at index "+i+ " is null");
+			}
+		}
 	}
 	
 	 public long hash(String str){
