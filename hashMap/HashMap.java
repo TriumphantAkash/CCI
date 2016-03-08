@@ -5,12 +5,9 @@ import java.util.ArrayList;
 public class HashMap {
 	
 	//an ArrayList of ArrayLists (each individual internal arraylist is basically a LinkedList of Nodes)
-	ArrayList<ArrayList<Node>> hashTab = new ArrayList<ArrayList<Node>>();
+	//ArrayList<ArrayList<Node>> hashTab = new ArrayList<ArrayList<Node>>();
 
-	//ArrayList<Node>[] hashTable = new ArrayList[10];
-	//ArrayList<Integer> list = new ArrayList<Integer>();
-	
-	
+	ArrayList<Node>[] hashTab = new ArrayList[10];
 	
 	
 	public void insertNode(String key, String value){
@@ -22,36 +19,32 @@ public class HashMap {
 		index = (int)hash(key)%10;
 		
 		System.out.println("index is: "+index);
-		
-		if(hashTab.size() < 10){
 			//2 cases inside this
 			//1) internal list is empty for this index
-			if(index>=hashTab.size()){
+			if(hashTab[index]==null){
 				ArrayList<Node> tempList = new ArrayList<Node>();
-				hashTab.add(0, tempList);
+				hashTab[index] = tempList;
 				tempList.add(node);
 			}else{//2) internal list is not empty for this index
-				hashTab.get(index).add(node);
+				hashTab[index].add(node);
 			}
-		}else {	//size of hashTab is already 10
-			hashTab.get(index).add(node);
-		}
+		
 	}
 	
 	//return null if no such key value pair is found
 	//else return the corresponding Value for the key
 	
-	public ArrayList<ArrayList<Node>> getHashTab() {
+	public ArrayList<Node>[] getHashTab() {
 		return hashTab;
 	}
 
-	public void setHashTab(ArrayList<ArrayList<Node>> hashTab) {
+	public void setHashTab(ArrayList<Node>[] hashTab) {
 		this.hashTab = hashTab;
 	}
 
 	public String getNode(String key){
-		int index = (int)hash(key)%hashTab.size();
-		ArrayList<Node> tempList= hashTab.get(index);
+		int index = (int)hash(key)%10;
+		ArrayList<Node> tempList= hashTab[index];
 		
 		for(Node node: tempList){
 			if(node.getKey().equals(key)){
