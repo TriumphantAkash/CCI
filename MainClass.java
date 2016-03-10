@@ -8,7 +8,7 @@ public class MainClass {
 	public static void main(String[] args){
 		
 		HashMap ht = new HashMap();
-		System.out.println("hash value of string Akash is: "+ht.hash("Akash"));
+		//System.out.println("hash value of string Akash is: "+ht.hash("Akash"));
 		
 		ht.insert("Akash", "CHaturvedi");
 		
@@ -16,15 +16,16 @@ public class MainClass {
 		ht.insert("Apurva", "Imaandar");
 		ht.insert("Saankya", "Ramdas");
 		
+
+		//ht.display();
 		
-//		for(ArrayList<Node> list: ht.getHashTab()){
-//			for(Node node:list){
-//				System.out.print(node.getKey()+", "+node.getValue()+"  ");
-//			}
-//			System.out.print("\n");
-//		}
+		//ht.remove("Akash");
+		
+		ht.remove("alskjdlka");
 		
 		ht.display();
+		
+		//System.out.println(ht.get("Mayank"));
 		
 	}
 }

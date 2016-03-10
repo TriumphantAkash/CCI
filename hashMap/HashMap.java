@@ -71,6 +71,23 @@ public class HashMap {
 		}
 	}
 	
+	public void remove(String key){
+		int index = (int)hash(key)%10;
+		ArrayList<Node> tempList = hashTab[index];
+		if(tempList != null){
+			for(Node n:tempList){
+				if(n.getKey().equals(key)){
+					hashTab[index] = null;
+					System.out.println("element removed");
+					return;
+				}
+			}
+			System.out.println("no such element present in the 'hashMap");
+		}else {
+			System.out.println("no such element present in the 'hashMap");
+		}
+	}
+	
 	 public long hash(String str){
 		 long ret = 0;
 		 for(int i=0; i<str.length(); i++){
